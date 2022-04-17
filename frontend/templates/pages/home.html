@@ -12,14 +12,14 @@
 <body class="page-body">
 <header class="width-container">
     <nav class="main-navigation">
-        <a class="main-header-logo">
+        <a href="{% url 'home' %}" class="main-header-logo">
             <img src="{{ logo.logo.url }}" width="138" height="70" alt="Логотип сайта Седона. City of Sedona.">
         </a>
         <ul class="site-navigation">
             <li><a href="blank.html">Информация</a></li>
             <li><a href="blank.html">Фото и видео</a></li>
             <li><a href="blank.html">Карта штата</a></li>
-            <li><a href="hotels.html">Гостиницы</a></li>
+            <li><a href="{% url 'hotels' %}">Гостиницы</a></li>
         </ul>
     </nav>
 </header>

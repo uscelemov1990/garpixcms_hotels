@@ -17,8 +17,9 @@ def home(request):
         ]
 
     additionally = Additionally.objects.all()[:3]
-    logo = Logo.objects.first()
     tagline = Tagline.objects.first()
+
+    logo = Logo.objects.first()
     footer = Footer.objects.first()
 
     context = {
