@@ -72,6 +72,7 @@
         </ul>
     </section>
 
+
     <section class="search">
         <h2 class="visually-hidden">Блок поиска гостиницы в Седоне</h2>
         <p>Заинтересовались?</p>
@@ -79,10 +80,12 @@
         <button class="button button-form-show" type="button">Бронирование гостиницы</button>
         <section class="modal">
             <h3 class="visually-hidden">Форма поиска гостиницы в Седоне</h3>
-            <form class="search-form" action="#" method="get">
-                <p>
-                    <label for="date-in">дата заезда:</label>
-                    <input class="date-input" type="text" name="date-in" id="date-in" value="24 апреля 2017">
+
+            <form class="search-form" action="/home/" method="post">
+                {% csrf_token %}
+                <p><label for="id_arrival_date">дата заезда:</label>
+                    <input class="date-input form-control" type="date" name="arrival_date" id="id_arrival_date"
+                           value="{{ form.arrival_date.value }}">
                     <button class="button button-date-input" type="button" name="date-in-icon"
                             aria-label="открыть календарь выбора даты">
                         <svg aria-hidden="true" focusable="false" width="38" height="38" viewBox="-8 -7 38 38"
@@ -96,9 +99,11 @@
                         </svg>
                     </button>
                 </p>
-                <p>
-                    <label for="date-out">дата выезда:</label>
-                    <input class="date-input" type="text" name="date-out" id="date-out" value="4 июля 2017">
+
+                <p><label for="id_date_of_departure">дата выезда:</label>
+                    <input class="date-input form-control" type="date" name="date_of_departure"
+                           id="id_date_of_departure"
+                           value="{{ form.date_of_departure.value }}">
                     <button class="button button-date-input" type="button" name="date-out-icon"
                             aria-label="открыть календарь выбора даты">
                         <svg aria-hidden="true" focusable="false" width="38" height="38" viewBox="-8 -7 38 38"
@@ -113,16 +118,18 @@
                     </button>
                 </p>
                 <p>
-                    <label for="adults">взрослые:</label>
-                    <input class="number-input" type="text" name="adults" id="adults" pattern="^[ 0-9]+$" value="2"
+                    <label for="id_adults">взрослые:</label>
+                    <input class="number-input" type="text" name="adults" id="id_adults" pattern="^[ 0-9]+$"
+                           value="{{ form.adults.value }}"
                            aria-label="укажите количество взрослых">
                     <button class="button button-number-minus button-adults-minus" type="button"
                             name="number-minus-icon" aria-label="уменьшить значение"></button>
                     <button class="button button-number-plus button-adults-plus" type="button" name="number-plus-icon"
                             aria-label="увеличить значение"></button>
 
-                    <label for="kids">дети:</label>
-                    <input class="number-input" type="text" name="kids" id="kids" pattern="^[ 0-9]+$" value="0"
+                    <label for="id_kids">дети:</label>
+                    <input class="number-input" type="text" name="kids" id="id_kids" pattern="^[ 0-9]+$"
+                           value="{{ form.kids.value }}"
                            aria-label="укажите количество детей">
                     <button class="button button-number-minus button-kids-minus" type="button" name="number-minus-icon"
                             aria-label="уменьшить значение"></button>
@@ -131,6 +138,7 @@
                 </p>
                 <button class="button button-form-search" type="submit" name="button">найти</button>
             </form>
+
         </section>
     </section>
     <section class="map">

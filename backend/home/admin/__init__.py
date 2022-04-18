@@ -5,3 +5,4 @@ from .additionally import AdditionallyPageAdmin
 from .logo import LogoPageAdmin
 from .tagline import TaglinePageAdmin
 from .footer import FooterPageAdmin
+from .booking import BookingPageAdmin

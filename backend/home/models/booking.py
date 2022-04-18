@@ -2,14 +2,13 @@ from django.db import models
 
 
 class Booking(models.Model):
-    name = models.CharField(max_length=50, verbose_name='бронировние', default='бронировние')
     arrival_date = models.DateField(verbose_name='дата заезда')
     date_of_departure = models.DateField(verbose_name='дата выезда')
-    adults = models.IntegerField(verbose_name='взрослые')
-    children = models.IntegerField(verbose_name='дети')
+    adults = models.PositiveIntegerField(verbose_name='взрослые')
+    kids = models.PositiveIntegerField(verbose_name='дети', blank=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.arrival_date} - {self.date_of_departure}. Взрослых - {self.adults}, детей - {self.kids}'
 
     class Meta:
         verbose_name = "Бронировние"

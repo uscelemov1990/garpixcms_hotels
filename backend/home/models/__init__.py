@@ -5,3 +5,4 @@ from .additionally import Additionally
 from .logo import Logo
 from .tagline import Tagline
 from .footer import Footer
+from .booking import Booking
