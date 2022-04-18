@@ -1,29 +1,7 @@
+{% extends 'pages/base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html class="page" lang="ru">
-<head>
-    <meta charset="utf-8">
-    <title>Hotels</title>
-    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-
-<body class="page-body">
-<header class="width-container">
-    <nav class="main-navigation">
-        <a class="main-header-logo" href="{% url 'home' %}">
-            <img src="{% static 'img/logo.svg' %}" width="138" height="70" alt="Логотип сайта Седона. City of Sedona.">
-        </a>
-        <ul class="site-navigation">
-            <li><a href="blank.html">Информация</a></li>
-            <li><a href="blank.html">Фото и видео</a></li>
-            <li><a href="blank.html">Карта штата</a></li>
-            <li class="active-page"><a href="{% url 'hotels' %}">Гостиницы</a></li>
-        </ul>
-    </nav>
-</header>
-
+{% block content %}
 <main class="hotels-main width-container">
     <h1 class="visually-hidden">Выбор гостиницы в Седоне</h1>
     <section class="parameters-form">
@@ -169,7 +147,9 @@
 
     </section>
 </main>
+{% endblock %}
 
+{% block footer %}
 <footer class="page-footer width-container">
     <section class="footer-contacts">
         <h2 class="visually-hidden">Контактная информация</h2>
@@ -215,6 +195,4 @@
     </div>
 
 </footer>
-<script src="{% static 'js/script.js' %}"></script>
-</body>
-</html>
+{% endblock %}
