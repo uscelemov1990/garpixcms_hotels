@@ -7,6 +7,7 @@
     <section class="parameters-form">
         <h2 class="visually-hidden">Фильтр параметров поиска</h2>
         <form class="filter" method="get" action="#">
+            {% csrf_token %}
             <fieldset class="filter-item">
                 <legend>Инфраструктура:</legend>
                 <ul>
@@ -52,10 +53,10 @@
                 <div class="range-filter">
                     <div class="price-controls">
                         <label class="min-price" aria-label="введите минимальное значение">
-                            <input type="text" name="min-price" placeholder="от 0">
+                            {{ form.price_min }}
                         </label>
                         <label class="max-price" aria-label="введите максимальное значение">
-                            <input type="text" name="max-price" placeholder="до 3000">
+                            {{ form.price_max }}
                         </label>
                     </div>
                 </div>
@@ -69,20 +70,36 @@
         <div class="results-sort">
             <div class="results-sum">
                 <p>Найдено:</p>
-                <div class="results-sum-value">3</div>
+                <div class="results-sum-value">{{ hotel.count }}</div>
             </div>
             <div class="sort-controls">
                 <h3>Сортировка:</h3>
                 <div class="sort-parameters">
+
+                    <form method="get" action="#">
+                    {% csrf_token %}
+                    <p hidden>{{ form.ordering_price }}</p>
                     <button onclick="filters(this)" data-parametr-name="ordering" data-parametr-value="price"
-                            class="button sort-parameters-button current" type="button">По цене
+                            class="button sort-parameters-button current" >{{ form.ordering_price.0 }}
                     </button>
-                    <button onclick="filters(this)" data-parametr-name="ordering" data-parametr-value="type"
-                            class="button sort-parameters-button" type="button">По типу
+                    </form>
+
+                    <form method="get" action="#">
+                    {% csrf_token %}
+                    <p hidden>{{ form.ordering_model }}</p>
+                    <button onclick="filters(this)" data-parametr-name="ordering" data-parametr-value="price"
+                            class="button sort-parameters-button current" >{{ form.ordering_model.0 }}
                     </button>
-                    <button onclick="filters(this)" data-parametr-name="ordering" data-parametr-value="rating"
-                            class="button sort-parameters-button" type="button">По рейтингу
+                    </form>
+
+                    <form method="get" action="#">
+                    {% csrf_token %}
+                    <p hidden>{{ form.ordering_rating }}</p>
+                    <button onclick="filters(this)" data-parametr-name="ordering" data-parametr-value="price"
+                            class="button sort-parameters-button current" >{{ form.ordering_rating.0 }}
                     </button>
+                    </form>
+
                 </div>
             </div>
         </div>

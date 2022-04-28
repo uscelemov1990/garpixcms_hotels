@@ -5,7 +5,7 @@ from .cause import Cause
 
 
 class Recommendation(LinkMixin):
-    cause = models.OneToOneField(Cause, on_delete=models.CASCADE)
+    cause = models.OneToOneField(Cause, on_delete=models.CASCADE, verbose_name='причина')
     name = models.CharField(max_length=150, verbose_name='рекомендация')
 
     def __str__(self):
